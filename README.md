@@ -1,1 +1,1 @@
-# grafana-nginx-ingress
+# Oberving the NGINX Ingress Controller (kubernetes) with Grafana
