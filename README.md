@@ -5,3 +5,5 @@ Requirements:
 - Kubectl Master Node 
 - Git
 - Helm
+
+The purpose of this repository is to provide education on how to deploy the NGINX Ingress Controller on Google Kubernetes Engine (GKE) with Prometheus and Grafana as the Observerability layer for NGINX Ingress Controller Resouces and other Kubernetes resouces.
