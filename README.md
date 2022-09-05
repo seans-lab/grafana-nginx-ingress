@@ -43,5 +43,13 @@ Install the kube-promethus stack specifically designed for Kubernetes Monitoring
 helm install prometheus-kube prometheus-community/kube-prometheus-stack
 ```
 
+## DNS
+For testing purposes, add an entry for the following names in your hosts file.
+
+```
+cafe.example.com
+grafana.example.com
+prometheus.example.com
+```
 
 ## Troubleshooting
