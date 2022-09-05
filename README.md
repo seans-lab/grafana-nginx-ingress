@@ -13,10 +13,13 @@ The purpose of this repository is to provide education on how to deploy the NGIN
 ## GKE Deployment using Hashicorp's Terraform
 
 ## Deploying the NGINX Ingress Controller using HELM
-
+Create the nginx-ingress namespace and set the configuration file to use the nginx-ingress namespace context.
 ```
 kubectl create namespace nginx-ingress
 kubectl config set-context --current --namespace=nginx-ingress
+```
+Add the Helm Repository and install the ingress controller with the flags to enable the prometheus exporter.
+```
 helm repo add nginx-stable https://helm.nginx.com/stable
 helm repo update
 helm install nginx-release nginx-stable/nginx-ingress --set prometheus.create=true --set prometheus.port=9113 --set prometheus.scheme=http
@@ -26,5 +29,19 @@ Deploy the NGINX Ingress Controler using HELM by following the documentation on 
 https://docs.nginx.com/nginx-ingress-controller/installation/installation-with-helm/
 
 ## Deploying the Prometheus and Grafana Stack using HELM
+Create the Grafana Namespace and set your configuration to use that namespace.
+```
+kubectl create namespace grafana
+kubectl config set-context --current --namespace=grafana
+```
+Add the Helm Repository for Prometheus.
+```
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+```
+Install the kube-promethus stack specifically designed for Kubernetes Monitoring.
+```
+helm install prometheus-kube prometheus-community/kube-prometheus-stack
+```
+
 
 ## Troubleshooting
