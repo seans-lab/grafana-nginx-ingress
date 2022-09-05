@@ -25,6 +25,18 @@ helm repo update
 helm install nginx-release nginx-stable/nginx-ingress --set prometheus.create=true --set prometheus.port=9113 --set prometheus.scheme=http
 ```
 
+## INSTALL CAFE APP
+```
+kubectl create namespace cafe
+kubectl config set-context --current --namespace=cafe
+git clone https://github.com/nginxinc/kubernetes-ingress.git --branch v2.3.0
+cd kubernetes-ingress/examples/complete-example
+cd ../../../
+kubectl apply -f kubernetes-ingress/examples/complete-example/cafe-secret.yaml -n cafe
+kubectl apply -f kubernetes-ingress/examples/complete-example/cafe.yaml -n cafe
+kubectl apply -f kubernetes-ingress/examples/complete-example/cafe-ingress.yaml -n cafe
+```
+
 Deploy the NGINX Ingress Controler using HELM by following the documentation on the following page.
 https://docs.nginx.com/nginx-ingress-controller/installation/installation-with-helm/
 
@@ -50,6 +62,7 @@ For testing purposes, add an entry for the following names in your hosts file.
 cafe.example.com
 grafana.example.com
 prometheus.example.com
+podinfo.example.com
 ```
 
 ## Troubleshooting
