@@ -8,9 +8,9 @@ Requirements:
 
 The purpose of this repository is to provide education on how to deploy the NGINX Ingress Controller on Google Kubernetes Engine (GKE) with Prometheus and Grafana as the Observerability layer for NGINX Ingress Controller Resouces and other Kubernetes resouces.
 
-## Architecture
-
 ## GKE Deployment using Hashicorp's Terraform
+
+[https://github.com/hashicorp/learn-terraform-provision-gke-cluster.git](https://github.com/hashicorp/learn-terraform-provision-gke-cluster)
 
 ## Deploying the NGINX Ingress Controller using HELM
 Create the nginx-ingress namespace and set the configuration file to use the nginx-ingress namespace context.
