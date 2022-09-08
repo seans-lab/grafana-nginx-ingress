@@ -18,7 +18,7 @@ Once the GKE deployment is complete. Login to your GCP via your web browser and 
 
 Find the cluster name according to your deployment configuration specified in your Terraform Configuration and click on the name hyperlink.
 
-Click on the SSH option on the top left side of the window and select your preferred SSH method to access the Kubernetes Management instance.
+Click on the 'Connect' button on the top of the window and select your preferred connection method to access the Kubernetes Management instance.
 
 TIP: For easy access use the browser shell.
 
