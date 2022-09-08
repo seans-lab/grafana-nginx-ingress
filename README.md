@@ -24,6 +24,7 @@ helm repo add nginx-stable https://helm.nginx.com/stable
 helm repo update
 helm install nginx-release nginx-stable/nginx-ingress --set prometheus.create=true --set prometheus.port=9113 --set prometheus.scheme=http
 ```
+Documentation Page: https://docs.nginx.com/nginx-ingress-controller/installation/installation-with-helm/
 
 ## INSTALL CAFE APP
 ```
@@ -36,9 +37,6 @@ kubectl apply -f kubernetes-ingress/examples/complete-example/cafe-secret.yaml -
 kubectl apply -f kubernetes-ingress/examples/complete-example/cafe.yaml -n cafe
 kubectl apply -f kubernetes-ingress/examples/complete-example/cafe-ingress.yaml -n cafe
 ```
-
-Deploy the NGINX Ingress Controler using HELM by following the documentation on the following page.
-https://docs.nginx.com/nginx-ingress-controller/installation/installation-with-helm/
 
 ## Deploying the Prometheus and Grafana Stack using HELM
 Create the Grafana Namespace and set your configuration to use that namespace.
