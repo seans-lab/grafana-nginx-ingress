@@ -118,12 +118,18 @@ Copy the content of the nginx-dashboard.json file and paste it in the
 
 ### Keda
 
+#### Keda's Function 
+
+#### Configuration
+
 ### K6
 
 #### What is K6 
 
 #### K6 Operator
 
-#### Config Map to test Script.
+#### Config Map
+
+#### Test Scripts.
 
 ## Troubleshooting
