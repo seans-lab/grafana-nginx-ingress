@@ -48,6 +48,19 @@ kubectl apply -f kubernetes-ingress/examples/complete-example/cafe-secret.yaml -
 kubectl apply -f kubernetes-ingress/examples/complete-example/cafe.yaml -n cafe
 kubectl apply -f kubernetes-ingress/examples/complete-example/cafe-ingress.yaml -n cafe
 ```
+## DNS
+
+Once all components ahev been deployed, you will need to add an entry for the following names in your /etc/hosts (Windows: C:\Windows\System32\drivers\etc) file. But first you will need to get the External IP for the ingress controller. On your Browser Shell execute the followig command.
+
+```
+kubectl get svc -n nginx-ingress
+```
+
+```
+cafe.example.com
+grafana.example.com
+prometheus.example.com
+```
 
 ## Deploying the Prometheus and Grafana Stack using HELM
 Create the Grafana Namespace and set your configuration to use that namespace.
@@ -84,6 +97,8 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout grafana-tls.key -out
 kubectl create secret tls grafana-tls --key="grafana-tls.key" --cert="grafana-tls.crt"
 kubectl apply -f grafana-ingress.yaml
 ```
+
+
 Visit https://grafana.example.com in your web browser.
 Username: admin
 Password: prom-operator
@@ -98,20 +113,5 @@ In the top Left Side select the Dashboard Icon and select browse. There will be 
 On the top left of the window select the Dashboard icon and click on the Import Button.
 
 Copy the content of the nginx-dashboard.json file and paste it in the 
-
-
-## DNS
-
-Once all components ahev been deployed, you will need to add an entry for the following names in your /etc/hosts (Windows: C:\Windows\System32\drivers\etc) file. But first you will need to get the External IP for the ingress controller. On your Browser Shell execute the followig command.
-
-```
-kubectl get svc -n nginx-ingress
-```
-
-```
-cafe.example.com
-grafana.example.com
-prometheus.example.com
-```
 
 ## Troubleshooting
