@@ -37,7 +37,7 @@ helm install nginx-release nginx-stable/nginx-ingress --set prometheus.create=tr
 ```
 Documentation Page: https://docs.nginx.com/nginx-ingress-controller/installation/installation-with-helm/
 
-## INSTALL CAFE APP
+## Install Cafe App
 ```
 kubectl create namespace cafe
 kubectl config set-context --current --namespace=cafe
