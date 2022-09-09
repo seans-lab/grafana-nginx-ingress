@@ -114,4 +114,16 @@ On the top left of the window select the Dashboard icon and click on the Import 
 
 Copy the content of the nginx-dashboard.json file and paste it in the 
 
+## Ingress Load
+
+### Keda
+
+### K6
+
+#### What is K6 
+
+#### K6 Operator
+
+#### Config Map to test Script.
+
 ## Troubleshooting
