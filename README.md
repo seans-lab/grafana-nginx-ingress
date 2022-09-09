@@ -65,10 +65,40 @@ Install the Prometheus Agent pod for the NGINX Ingress Controller
 helm install prometheus prometheus-community/prometheus
 ```
 
+I have greated an ingress resource to view the Prometheus Agent and see what kinkd of metrics are available from the Ingress Controller.
+
+```
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout prometheus-tls.key -out prometheus-tls.crt -subj "/CN=prometheus.example.com"
+kubectl create secret tls prometheus-tls --key="prometheus-tls.key" --cert="prometheus-tls.crt"
+kubectl apply -f prometheus-ingress.yaml
+```
+
 Install the kube-promethus stack specifically designed for Kubernetes Monitoring.
 ```
 helm install prometheus-kube prometheus-community/kube-prometheus-stack
 ```
+We can now create an ingress resource for the Grafana Dashboard to be able to access it externally.
+
+```
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout grafana-tls.key -out grafana-tls.crt -subj "/CN=grafana.example.com"
+kubectl create secret tls grafana-tls --key="grafana-tls.key" --cert="grafana-tls.crt"
+kubectl apply -f grafana-ingress.yaml
+```
+Visit https://grafana.example.com in your web browser.
+Username: admin
+Password: prom-operator
+
+
+## Dashboard Navigation
+
+In the top Left Side select the Dashboard Icon and select browse. There will be a series of dashboards available for you to navigate through.
+
+## Add the NGINX Ingress Controller Dashboard
+
+On the top left of the window select the Dashboard icon and click on the Import Button.
+
+Copy the content of the nginx-dashboard.json file and paste it in the 
+
 
 ## DNS
 
