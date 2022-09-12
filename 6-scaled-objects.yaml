@@ -8,7 +8,7 @@ spec:
    name: nginx-release-nginx-ingress
  minReplicaCount: 1
  maxReplicaCount: 15
- cooldownPeriod: 5
+ cooldownPeriod: 1
  pollingInterval: 1
  triggers:
  - type: prometheus

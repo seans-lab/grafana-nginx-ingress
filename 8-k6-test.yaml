@@ -7,5 +7,5 @@ spec:
   script:
     configMap:
       name: crocodile-stress-test
-      file: k6-test.js
+      file: 8-k6-test.js
 
