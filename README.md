@@ -135,9 +135,29 @@ The operator pattern is a way of extending Kubernetes so that you may use custom
 
 This is accomplished using custom resources which, for the scope of this article, could be compared to the traditional service requests that you would file to your system operator to get changes applied to the environment.
 
+```
+git clone https://github.com/grafana/k6-operator && cd k6-operator
+```
+
 #### Config Map
 
 Once the test script is done, we have to deploy it to the kubernetes cluster. We’ll use a ConfigMap to accomplish this. The name of the map can be whatever you like, but for this demo we'll go with crocodile-stress-test.
+
+```
+apiVersion: k6.io/v1alpha1
+kind: K6
+metadata:
+  name: k6-sample
+spec:
+  parallelism: 4
+  script:
+    configMap:
+      name: crocodile-stress-test
+      file: k6-test.js
+
+
+
+```
 
 #### Test Scripts.
 
