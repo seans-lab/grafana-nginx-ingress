@@ -117,19 +117,19 @@ Password: prom-operator
 
 In the top Left Side select the Dashboard Icon and select browse. There will be a series of dashboards available for you to navigate through.
 
-<img src="https://github.com/seans-lab/grafana-nginx-ingress/blob/main/images/Grafana1.png" width=75%
+<img src="https://github.com/seans-lab/grafana-nginx-ingress/blob/main/images/Grafana1.png" width=50%
 />
 
 ## Add the NGINX Ingress Controller Dashboard
 
 On the top left of the window select the Dashboard icon and click on the Import Button.
 
-<img src="https://github.com/seans-lab/grafana-nginx-ingress/blob/main/images/Grafana2.png" width=75%
+<img src="https://github.com/seans-lab/grafana-nginx-ingress/blob/main/images/Grafana2.png" width=25%
 />
 
 Copy the content of the nginx-dashboard.json file and paste it in the 
 
-<img src="https://github.com/seans-lab/grafana-nginx-ingress/blob/main/images/Grafana3.png" width=75%
+<img src="https://github.com/seans-lab/grafana-nginx-ingress/blob/main/images/Grafana3.png" width=25%
 />
 
 ## Ingress Load
