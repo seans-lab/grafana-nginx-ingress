@@ -137,6 +137,9 @@ This is accomplished using custom resources which, for the scope of this article
 
 ```
 git clone https://github.com/grafana/k6-operator && cd k6-operator
+kubectl create namespace k6
+kubectl config set-context --current --namespace=k6
+make deploy
 ```
 
 #### Config Map
