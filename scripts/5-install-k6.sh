@@ -5,3 +5,4 @@ git clone https://github.com/grafana/k6-operator && cd k6-operator
 make deploy
 kubectl config set-context --current --namespace=cafe
 kubectl create configmap crocodile-stress-test --from-file ../k6-test.js
+kubectl apply -f ../8-k6-test.yaml
