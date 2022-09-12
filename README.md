@@ -20,7 +20,13 @@ Once the GKE deployment is complete. Login to your GCP via your web browser and 
 
 Find the cluster name according to your deployment configuration specified in your Terraform Configuration and click on the name hyperlink.
 
+<img src="https://github.com/seans-lab/grafana-nginx-ingress/blob/main/images/GCloud2.png" width=75%
+/>
+
 Click on the 'Connect' button on the top of the window and select your preferred connection method to access the Kubernetes Management instance.
+
+<img src="https://github.com/seans-lab/grafana-nginx-ingress/blob/main/images/GCloud3.png" width=75%
+/>
 
 TIP: For easy access use the browser shell.
 
@@ -106,15 +112,25 @@ Username: admin
 Password: prom-operator
 
 
+
 ## Dashboard Navigation
 
 In the top Left Side select the Dashboard Icon and select browse. There will be a series of dashboards available for you to navigate through.
+
+<img src="https://github.com/seans-lab/grafana-nginx-ingress/blob/main/images/Grafana1.png" width=75%
+/>
 
 ## Add the NGINX Ingress Controller Dashboard
 
 On the top left of the window select the Dashboard icon and click on the Import Button.
 
+<img src="https://github.com/seans-lab/grafana-nginx-ingress/blob/main/images/Grafana2.png" width=75%
+/>
+
 Copy the content of the nginx-dashboard.json file and paste it in the 
+
+<img src="https://github.com/seans-lab/grafana-nginx-ingress/blob/main/images/Grafana3.png" width=75%
+/>
 
 ## Ingress Load
 
