@@ -15,6 +15,8 @@ The purpose of this repository is to provide education on how to deploy the NGIN
 ## Managing your Kubernetes Cluster via the Google Cloud Management Portal.
 Once the GKE deployment is complete. Login to your GCP via your web browser and select the Kubernetes Engine --> Clusters from the service selection drop Down Menue on the top right hand side of the window.
 
+<img src="https://github.com/seans-lab/grafana-nginx-ingress/blob/main/images/GCloud1.png"
+/>
 
 Find the cluster name according to your deployment configuration specified in your Terraform Configuration and click on the name hyperlink.
 
