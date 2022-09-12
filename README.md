@@ -135,10 +135,52 @@ Copy the content of the nginx-dashboard.json file and paste it in the
 ## Ingress Load
 
 ### Keda
+All About Keda
+https://keda.sh/
+
 
 #### Keda's Function 
 
+
+
+KEDA is a Kubernetes-based Event Driven Autoscaler. With KEDA, you can drive the scaling of any container in Kubernetes based on the number of events needing to be processed.
+
+KEDA is a single-purpose and lightweight component that can be added into any Kubernetes cluster. KEDA works alongside standard Kubernetes components like the Horizontal Pod Autoscaler and can extend functionality without overwriting or duplication. With KEDA you can explicitly map the apps you want to use event-driven scale, with other apps continuing to function. This makes KEDA a flexible and safe option to run alongside any number of any other Kubernetes applications or frameworks.
+
+#### Keda Installation
+
+
+```
+#INSTALL KEDA
+helm repo add kedacore https://kedacore.github.io/charts
+helm install keda kedacore/keda
+kubectl apply -f 4-scaled-objects.yaml 
+```
+
 #### Configuration
+
+```
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+ name: nginx-scale
+spec:
+ scaleTargetRef:
+   kind: Deployment
+   name: main-nginx-ingress
+ minReplicaCount: 1
+ maxReplicaCount: 20
+ cooldownPeriod: 30
+ pollingInterval: 1
+ triggers:
+ - type: prometheus
+   metadata:
+     serverAddress: http://prometheus-server
+     metricName: nginx_connections_active_keda
+     query: |
+       sum(avg_over_time(nginx_ingress_nginx_connections_active{app="main-nginx-ingress"}[1m]))
+     threshold: "100"
+```
 
 ### K6
 
