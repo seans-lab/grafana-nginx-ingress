@@ -129,7 +129,7 @@ On the top left of the window select the Dashboard icon and click on the Import 
 
 Copy the content of the nginx-dashboard.json file and paste it in the 
 
-<img src="https://github.com/seans-lab/grafana-nginx-ingress/blob/main/images/Grafana3.png" width=25%
+<img src="https://github.com/seans-lab/grafana-nginx-ingress/blob/main/images/Grafana3.png" width=50%
 />
 
 ## Ingress Load
