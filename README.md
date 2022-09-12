@@ -125,11 +125,72 @@ Copy the content of the nginx-dashboard.json file and paste it in the
 ### K6
 
 #### What is K6 
+Grafana k6 is an open-source load testing tool that makes performance testing easy and productive for engineering teams. k6 is free, developer-centric, and extensible.
+
+Using k6, you can test the reliability and performance of your systems and catch performance regressions and problems earlier. k6 will help you to build resilient and performant applications that scale.
 
 #### K6 Operator
 
+The operator pattern is a way of extending Kubernetes so that you may use custom resources to manage applications running in the cluster. The pattern aims to automate the tasks that a human operator would usually do, like provisioning new application components, changing the configuration, or resolving problems that occur.
+
+This is accomplished using custom resources which, for the scope of this article, could be compared to the traditional service requests that you would file to your system operator to get changes applied to the environment.
+
 #### Config Map
 
+Once the test script is done, we have to deploy it to the kubernetes cluster. We’ll use a ConfigMap to accomplish this. The name of the map can be whatever you like, but for this demo we'll go with crocodile-stress-test.
+
 #### Test Scripts.
+
+```
+// Creator: k6 Browser Recorder 0.6.0
+
+import { sleep, group } from 'k6'
+import http from 'k6/http'
+
+export const options = { vus: 100, duration: '3m', insecureSkipTLSVerify: true }
+
+export default function main() {
+  let response
+
+  group('page_1 - http://coffee-svc', function () {
+    response = http.get('http://coffee-svc', {
+      headers: {
+        host: 'coffee-svc',
+        accept:
+          'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+        'accept-language': 'en-US,en;q=0.5',
+        'accept-encoding': 'gzip, deflate, br',
+        connection: 'keep-alive',
+        'upgrade-insecure-requests': '1',
+        'sec-fetch-dest': 'document',
+        'sec-fetch-mode': 'navigate',
+        'sec-fetch-site': 'none',
+        'sec-fetch-user': '?1',
+        'sec-gpc': '1',
+      },
+    })
+    sleep(6.3)
+  })
+
+  group('page_2 - http://tea-svc', function () {
+    response = http.get('http://tea-svc', {
+      headers: {
+        host: 'tea-svc',
+        accept:
+          'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+        'accept-language': 'en-US,en;q=0.5',
+        'accept-encoding': 'gzip, deflate, br',
+        connection: 'keep-alive',
+        'upgrade-insecure-requests': '1',
+        'sec-fetch-dest': 'document',
+        'sec-fetch-mode': 'navigate',
+        'sec-fetch-site': 'none',
+        'sec-fetch-user': '?1',
+        'sec-gpc': '1',
+      },
+    })
+  })
+}
+```
 
 ## Troubleshooting
