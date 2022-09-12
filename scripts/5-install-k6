@@ -1,0 +1,4 @@
+# Install K6
+git clone https://github.com/grafana/k6-operator && cd k6-operator
+make deploy
+kubectl create configmap crocodile-stress-test --from-file ../k6-test.js
