@@ -235,3 +235,10 @@ export default function main() {
 ```
 
 ## Troubleshooting
+
+- Check Comments
+- Join the Slack Community
+- Follow Social Groups
+- GitHub
+- Hit us up on LinkedIn
+
