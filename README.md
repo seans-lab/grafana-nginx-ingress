@@ -204,6 +204,10 @@ make deploy
 
 #### Config Map
 
+```
+kubectl create configmap cafe-stress-test --from-file k6-test.js
+```
+
 Once the test script is done, we have to deploy it to the kubernetes cluster. We’ll use a ConfigMap to accomplish this. The name of the map can be whatever you like, but for this demo we'll go with crocodile-stress-test.
 
 ```
