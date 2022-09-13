@@ -91,7 +91,7 @@ I have greated an ingress resource to view the Prometheus Agent and see what kin
 ```
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout prometheus-tls.key -out prometheus-tls.crt -subj "/CN=prometheus.example.com"
 kubectl create secret tls prometheus-tls --key="prometheus-tls.key" --cert="prometheus-tls.crt"
-kubectl apply -f prometheus-ingress.yaml
+kubectl apply -f 4-prometheus-ingress.yaml
 ```
 
 Install the kube-promethus stack specifically designed for Kubernetes Monitoring.
