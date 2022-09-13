@@ -202,13 +202,21 @@ kubectl config set-context --current --namespace=k6
 make deploy
 ```
 
-#### Config Map
+#### Deploying our test script
+
+Once the test script is done, we have to deploy it to the kubernetes cluster. We’ll use a ConfigMap to accomplish this. The name of the map can be whatever you like, but for this demo we'll go with crocodile-stress-test.
+
+Once the test script is done, we have to deploy it to the kubernetes cluster. We’ll use a ConfigMap to accomplish this. The name of the map can be whatever you like, but for this demo we'll go with cafe-stress-test.
 
 ```
 kubectl create configmap cafe-stress-test --from-file k6-test.js
 ```
 
-Once the test script is done, we have to deploy it to the kubernetes cluster. We’ll use a ConfigMap to accomplish this. The name of the map can be whatever you like, but for this demo we'll go with crocodile-stress-test.
+The config map contains the content of our test file, labelled as test.js. The operator will later search through our config map for this key, and use its content as the test script.
+
+#### Creating our custom resource (CR)
+
+To communicate with the operator, we’ll use a custom resource called K6. Custom resources behave just as native Kubernetes objects, while being fully customizable. In this case, the data of the custom resource contains all the information necessary for k6 operator to be able to start a distributed load test:
 
 ```
 apiVersion: k6.io/v1alpha1
@@ -226,7 +234,7 @@ spec:
 
 ```
 
-#### Test Scripts.
+#### Test Script.
 
 ```
 // Creator: k6 Browser Recorder 0.6.0
