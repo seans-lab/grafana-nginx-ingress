@@ -103,7 +103,7 @@ We can now create an ingress resource for the Grafana Dashboard to be able to ac
 ```
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout grafana-tls.key -out grafana-tls.crt -subj "/CN=grafana.example.com"
 kubectl create secret tls grafana-tls --key="grafana-tls.key" --cert="grafana-tls.crt"
-kubectl apply -f grafana-ingress.yaml
+kubectl apply -f 5-grafana-ingress.yaml
 ```
 
 
