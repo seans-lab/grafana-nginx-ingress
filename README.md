@@ -108,7 +108,9 @@ kubectl apply -f 5-grafana-ingress.yaml
 
 
 Visit https://grafana.example.com in your web browser.
+
 Username: admin
+
 Password: prom-operator
 
 
