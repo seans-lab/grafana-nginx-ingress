@@ -229,7 +229,7 @@ spec:
   parallelism: 4
   script:
     configMap:
-      name: crocodile-stress-test
+      name: cafe-stress-test
       file: k6-test.js
 
 
