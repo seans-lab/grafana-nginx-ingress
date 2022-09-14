@@ -209,7 +209,14 @@ The config map contains the content of our test file, labelled as test.js. The o
 
 #### Creating our custom resource (CR)
 
-To communicate with the operator, we’ll use a custom resource called K6. Custom resources behave just as native Kubernetes objects, while being fully customizable. In this case, the data of the custom resource contains all the information necessary for k6 operator to be able to start a distributed load test:
+To communicate with the operator, we’ll use a custom resource called K6. Custom resources behave just as native Kubernetes objects, while being fully customizable. 
+
+```
+cd ../
+kubectl apply -f 7-k6-test.yaml
+```
+
+In this case, the data of the custom resource contains all the information necessary for k6 operator to be able to start a distributed load test:
 
 ```
 apiVersion: k6.io/v1alpha1
