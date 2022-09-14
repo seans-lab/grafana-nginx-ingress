@@ -32,11 +32,7 @@ TIP: For easy access use the browser shell.
 
 
 ## Deploying the NGINX Ingress Controller using HELM
-Create the nginx-ingress namespace and set the configuration file to use the nginx-ingress namespace context.
-```
-kubectl create namespace nginx-ingress
-kubectl config set-context --current --namespace=nginx-ingress
-```
+
 Add the Helm Repository and install the ingress controller with the flags to enable the prometheus exporter.
 ```
 helm repo add nginx-stable https://helm.nginx.com/stable
@@ -47,14 +43,12 @@ Documentation Page: https://docs.nginx.com/nginx-ingress-controller/installation
 
 ## Install Cafe App
 ```
-kubectl create namespace cafe
-kubectl config set-context --current --namespace=cafe
 git clone https://github.com/nginxinc/kubernetes-ingress.git --branch v2.3.0
 cd kubernetes-ingress/examples/complete-example
 cd ../../../
-kubectl apply -f kubernetes-ingress/examples/complete-example/cafe-secret.yaml -n cafe
-kubectl apply -f kubernetes-ingress/examples/complete-example/cafe.yaml -n cafe
-kubectl apply -f kubernetes-ingress/examples/complete-example/cafe-ingress.yaml -n cafe
+kubectl apply -f kubernetes-ingress/examples/complete-example/cafe-secret.yaml
+kubectl apply -f kubernetes-ingress/examples/complete-example/cafe.yaml
+kubectl apply -f kubernetes-ingress/examples/complete-example/cafe-ingress.yaml
 ```
 ## DNS
 
@@ -71,11 +65,7 @@ prometheus.example.com
 ```
 
 ## Deploying the Prometheus and Grafana Stack using HELM
-Create the Grafana Namespace and set your configuration to use that namespace.
-```
-kubectl create namespace grafana
-kubectl config set-context --current --namespace=grafana
-```
+
 Add the Helm Repository for Prometheus.
 ```
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
@@ -199,8 +189,6 @@ This is accomplished using custom resources which, for the scope of this article
 
 ```
 git clone https://github.com/grafana/k6-operator && cd k6-operator
-kubectl create namespace k6
-kubectl config set-context --current --namespace=k6
 make deploy
 ```
 
@@ -297,4 +285,5 @@ export default function main() {
 - Follow Social Groups
 - GitHub
 - Hit us up on LinkedIn
+
 
