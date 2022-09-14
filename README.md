@@ -149,7 +149,7 @@ KEDA is a single-purpose and lightweight component that can be added into any Ku
 #INSTALL KEDA
 helm repo add kedacore https://kedacore.github.io/charts
 helm install keda kedacore/keda
-kubectl apply -f 4-scaled-objects.yaml 
+kubectl apply -f 6-scaled-objects.yaml 
 ```
 
 #### Configuration
