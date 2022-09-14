@@ -46,9 +46,9 @@ Documentation Page: https://docs.nginx.com/nginx-ingress-controller/installation
 git clone https://github.com/nginxinc/kubernetes-ingress.git --branch v2.3.0
 cd kubernetes-ingress/examples/complete-example
 cd ../../../
-kubectl apply -f kubernetes-ingress/examples/complete-example/cafe-secret.yaml -n cafe
-kubectl apply -f kubernetes-ingress/examples/complete-example/cafe.yaml -n cafe
-kubectl apply -f kubernetes-ingress/examples/complete-example/cafe-ingress.yaml -n cafe
+kubectl apply -f kubernetes-ingress/examples/complete-example/cafe-secret.yaml
+kubectl apply -f kubernetes-ingress/examples/complete-example/cafe.yaml
+kubectl apply -f kubernetes-ingress/examples/complete-example/cafe-ingress.yaml
 ```
 ## DNS
 
