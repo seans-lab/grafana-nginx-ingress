@@ -124,6 +124,9 @@ Copy the content of the nginx-dashboard.json file and paste it in the
 <img src="https://github.com/seans-lab/grafana-nginx-ingress/blob/main/images/Grafana3.png" width=50%
 />
 
+## Create Data Source for NGINX Ingress Controller Prometheus Instance
+
+
 ## Ingress Load
 
 ### Keda
