@@ -1,8 +1,6 @@
 # Install K6
-kubectl create namespace k6
-kubectl config set-context --current --namespace=k6
 git clone https://github.com/grafana/k6-operator && cd k6-operator
 make deploy
-kubectl config set-context --current --namespace=cafe
-kubectl create configmap crocodile-stress-test --from-file ../k6-test.js
-kubectl apply -f ../8-k6-test.yaml
+cd ../
+kubectl create configmap cafe-stress-test --from-file k6-test.js
+kubectl apply -f 7-k6-test.yaml
