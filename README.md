@@ -71,12 +71,19 @@ Add the Helm Repository for Prometheus.
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 ```
 
+Install the kube-promethus stack specifically designed for Kubernetes Monitoring. This will include an instance of Grafana for Dashboarding and a number of other prometheus resources.
+
+```
+helm install prometheus-kube prometheus-community/kube-prometheus-stack
+```
+
 Install the Prometheus Agent pod for the NGINX Ingress Controller
+
 ```
 helm install prometheus prometheus-community/prometheus
 ```
 
-I have greated an ingress resource to view the Prometheus Agent and see what kinkd of metrics are available from the Ingress Controller.
+I have greated an ingress resource to view the Prometheus Agent and see what kind of metrics are available from the Ingress Controller.
 
 ```
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout prometheus-tls.key -out prometheus-tls.crt -subj "/CN=prometheus.example.com"
@@ -84,10 +91,6 @@ kubectl create secret tls prometheus-tls --key="prometheus-tls.key" --cert="prom
 kubectl apply -f 4-prometheus-ingress.yaml
 ```
 
-Install the kube-promethus stack specifically designed for Kubernetes Monitoring.
-```
-helm install prometheus-kube prometheus-community/kube-prometheus-stack
-```
 We can now create an ingress resource for the Grafana Dashboard to be able to access it externally.
 
 ```
@@ -126,6 +129,17 @@ Copy the content of the nginx-dashboard.json file and paste it in the
 
 ## Create Data Source for NGINX Ingress Controller Prometheus Instance
 
+List the kubernetes pods by running the following command.
+```
+kubectl get pods -o wide
+```
+
+Manke note of the ip address of the pod beginning with *prometheus-server-*
+
+From the Grafana page select the settings cog and select *Add Data Source*.
+
+In the address fiels add the ip address and port 9090 with a prefix of *http://* to the field then scroll to the bottom of the page and select *Save & Test*
+
 
 ## Ingress Load
 
@@ -135,8 +149,6 @@ https://keda.sh/
 
 
 #### Keda's Function 
-
-
 
 KEDA is a Kubernetes-based Event Driven Autoscaler. With KEDA, you can drive the scaling of any container in Kubernetes based on the number of events needing to be processed.
 
